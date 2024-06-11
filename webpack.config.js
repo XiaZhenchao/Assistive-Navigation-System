@@ -24,13 +24,19 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': JSON.stringify(process.env),
+    //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    // }),
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
+  }),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
+    fallback: {
+      "buffer": require.resolve("buffer")
+    }
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
