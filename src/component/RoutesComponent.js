@@ -38,8 +38,7 @@ export const RoutesComponent = () => {
 
     directionsService.route(directionsRequest, (result, status) => {
       if (status === 'OK') {
-        console.log(result);
-        // console.log(pathCoordinates);
+       
 
         const routeObjects = result.routes.map((route, index) => {
           const directionsRenderer = new routesLib.DirectionsRenderer(rendererOptions);
@@ -57,8 +56,9 @@ export const RoutesComponent = () => {
     if (!routesLib || !map) return;
     // getDirections()
     // setRoutes(RoutePoints)
-    console.log(processWKBArray(WKB))
-    // getSidewalkAccessibility(minLat, minLon, maxLat, maxLon)
+    console.log("123")
+    // console.log(processWKBArray(WKB))
+    getSidewalkAccessibility(minLat, minLon, maxLat, maxLon)
 
   }, [routesLib, map]);
 

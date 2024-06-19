@@ -15,7 +15,7 @@ export const readWKB = (wkbstring) => {
 export const processWKBArray = (wkbArray) => {
   return wkbArray.points.map(point => {
     const geoJSON = readWKB(point[0]);
-    console.log(geoJSON)
+    
     let coordinates = {};
     if (geoJSON.type === 'MultiPolygon') {
       // If the geometry is a polygon, convert the coordinates to an array of arrays

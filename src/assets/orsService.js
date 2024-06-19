@@ -6,7 +6,7 @@ const ORS_API_URL = 'https://api.openrouteservice.org/v2/directions/';
 // con
 const getRoute = async (start, end) => {
   try {
-    console.log(start, end)
+   
     const response = await axios.get(`${ORS_API_URL}foot-walking`, {
       params: {
         api_key: ORS_API_KEY,
