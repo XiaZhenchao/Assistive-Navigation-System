@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useMemo, useState } from 'react';
-import { useMapsLibrary, useMap  } from '@vis.gl/react-google-maps';
+import { useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
 import Route from '../utils/Route';
 import { MoveMarkerAlongRoute } from './MoveMarkerAlongRoute';
 import { RoutePoints } from '../assets';
@@ -18,7 +18,7 @@ export const RoutesComponent = () => {
   // if the library hasn't been loaded. Once loaded, it will return the library
   // object as it would be returned by `await google.maps.importLibrary()`
   const [routes, setRoutes] = useState(null);
-  
+
   const map = useMap();
   const routesLib = useMapsLibrary('routes');
 
@@ -38,7 +38,7 @@ export const RoutesComponent = () => {
 
     directionsService.route(directionsRequest, (result, status) => {
       if (status === 'OK') {
-       
+
 
         const routeObjects = result.routes.map((route, index) => {
           const directionsRenderer = new routesLib.DirectionsRenderer(rendererOptions);
@@ -53,14 +53,22 @@ export const RoutesComponent = () => {
     });
   };
   useEffect(() => {
-    if (!routesLib || !map) return;
-    // getDirections()
-    // setRoutes(RoutePoints)
-    console.log("123")
-    // console.log(processWKBArray(WKB))
-    getSidewalkAccessibility(minLat, minLon, maxLat, maxLon)
+    const fetchData = async () => {
+      if (!routesLib || !map) return;
+      // getDirections()
+      // setRoutes(RoutePoints)
+      try {
+        const wkb = await getSidewalkAccessibility(RoutePoints);
+        console.log(processWKBArray(wkb))
+        // Further processing or state updates with wkb
+      } catch (error) {
+        console.error('Error fetching sidewalk accessibility data:', error);
+        // Handle error state or show error message
+      }
+    };
 
-  }, [routesLib, map]);
+    fetchData();
+  }, [routesLib, map, RoutePoints]);
 
   return <div>
     {routes && routes.length > 0 && <MoveMarkerAlongRoute route={routes} />}

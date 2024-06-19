@@ -13,7 +13,7 @@ export const readWKB = (wkbstring) => {
   return geometry.toGeoJSON();
 };
 export const processWKBArray = (wkbArray) => {
-  return wkbArray.points.map(point => {
+  return wkbArray.map(point => {
     const geoJSON = readWKB(point[0]);
     
     let coordinates = {};
