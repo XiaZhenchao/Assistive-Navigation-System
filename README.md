@@ -24,7 +24,7 @@ python -m venv venv<br />
 source venv/bin/activate <br />
 pip install -r requirements.txt<br />
 
-2. **Install frontend dependencies:**
+2. **Install frontend dependencies:**<br />
 cd froject<br />
 npm install<br />
 
