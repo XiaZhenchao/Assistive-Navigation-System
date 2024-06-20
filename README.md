@@ -13,7 +13,7 @@ This novel assistive navigation system is designed specifically for visually imp
 ## Installation
 
 1. **Install backend dependencies:**
-### Prerequisites
+### Prerequisites (Assume in the project folder directory)
 
 Ensure you have the following software installed on your machine:
 - Python (version 3.6 or higher)
@@ -25,7 +25,6 @@ source venv/bin/activate <br />
 pip install -r requirements.txt<br />
 
 2. **Install frontend dependencies:**<br />
-cd froject<br />
 npm install<br />
 
 ## Upcoming Features

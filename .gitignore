@@ -4,6 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment directory
+venv/
+
 
 # testing
 /coverage
