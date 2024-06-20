@@ -5,12 +5,13 @@ This novel assistive navigation system is designed specifically for visually imp
 
 ## Table of Contents
 - [Installation](#installation)
-- [Usage](#usage)
+<!-- - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
+- [Contributing](#contributing) -->
 
 
 ## Installation
+
 1. **Install backend dependencies:**
 ### Prerequisites
 
@@ -19,17 +20,23 @@ Ensure you have the following software installed on your machine:
 - pip (Python package installer)
 - Virtualenv (optional but recommended for managing dependencies)<br />
 cd backend<br />
-    python -m venv venv<br />
-    source venv/bin/activate <br />
-    pip install -r requirements.txt<br />
+python -m venv venv<br />
+source venv/bin/activate <br />
+pip install -r requirements.txt<br />
+
+2. **Install frontend dependencies:**
+cd froject
+npm install
+
+## Upcoming Features
+1. Online map navigation service
+2. User input 
+3. GPS real time updates
+4. Navigation Broadcast
 
 
 
-## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start` for the frontend
 
 
 
