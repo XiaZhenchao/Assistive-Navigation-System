@@ -6,10 +6,7 @@ def get_sidewalk_accessibility(line_points):
     try:
         conn = psycopg2.connect(dsn= os.getenv('dsn'))
         cursor = conn.cursor()
-        multipoint_str = ', '.join([f"{point['lng']} {point['lat']}" for point in line_points])
         line_geom = f"ST_SetSRID(ST_MakeLine(ARRAY[{', '.join(['ST_MakePoint(%s, %s)'] * len(line_points))}]), 2263)"
-
-
         query = f"""
         WITH geometry_range AS (
             SELECT *

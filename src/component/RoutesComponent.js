@@ -1,24 +1,33 @@
 import React, { useEffect, useRef, useMemo, useState } from 'react';
-import { useMapsLibrary, useMap } from '@vis.gl/react-google-maps';
+import { useMapsLibrary, useMap, GoogleMapsContext} from '@vis.gl/react-google-maps';
 import Route from '../utils/Route';
 import { MoveMarkerAlongRoute } from './MoveMarkerAlongRoute';
 import { RoutePoints } from '../assets';
 import { getSidewalkAccessibility } from '../utils/getSidewalkAccessibility';
 import { processWKBArray } from '../utils/readWKB';
-import { WKB } from '../assets';
+import {ScatterplotLayer} from '@deck.gl/layers';
+import {GoogleMapsOverlay} from '@deck.gl/google-maps';
+import DeckGLOverlay from './DeckGLOverlay';
 const start = { lat: 40.713536, lng: -74.011223 };
 const end = { lat: 40.7284405, lng: -74.0 };
-const minLat = -73.98969102652072;
-const minLon = 40.75031259197294;
-const maxLat = -73.97796819057606;
-const maxLon = 40.759227106897974;
+
 
 export const RoutesComponent = () => {
   // useMapsLibrary loads the geocoding library, it might initially return `null`
   // if the library hasn't been loaded. Once loaded, it will return the library
   // object as it would be returned by `await google.maps.importLibrary()`
   const [routes, setRoutes] = useState(null);
-
+  const layers = [
+    new ScatterplotLayer({
+      id: 'deckgl-circle',
+      data: [
+        {position: start}
+      ],
+      getPosition: d => d.position,
+      getFillColor: [255, 0, 0, 100],
+      getRadius: 1000
+    })
+  ];
   const map = useMap();
   const routesLib = useMapsLibrary('routes');
 
@@ -58,8 +67,8 @@ export const RoutesComponent = () => {
       // getDirections()
       // setRoutes(RoutePoints)
       try {
-        const wkb = await getSidewalkAccessibility(RoutePoints);
-        console.log(processWKBArray(wkb))
+        // const wkb = await getSidewalkAccessibility(RoutePoints);
+        // console.log(processWKBArray(wkb))
         // Further processing or state updates with wkb
       } catch (error) {
         console.error('Error fetching sidewalk accessibility data:', error);
@@ -72,5 +81,7 @@ export const RoutesComponent = () => {
 
   return <div>
     {routes && routes.length > 0 && <MoveMarkerAlongRoute route={routes} />}
+    {map && <DeckGLOverlay layers={layers} />}
+
   </div>;
 };
