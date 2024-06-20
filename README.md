@@ -25,8 +25,8 @@ source venv/bin/activate <br />
 pip install -r requirements.txt<br />
 
 2. **Install frontend dependencies:**
-cd froject
-npm install
+cd froject<br />
+npm install<br />
 
 ## Upcoming Features
 1. Online map navigation service
