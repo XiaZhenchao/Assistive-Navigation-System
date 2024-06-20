@@ -17,11 +17,11 @@ This novel assistive navigation system is designed specifically for visually imp
 Ensure you have the following software installed on your machine:
 - Python (version 3.6 or higher)
 - pip (Python package installer)
-- Virtualenv (optional but recommended for managing dependencies)
-```cd backend
-    python -m venv venv
-    source venv/bin/activate 
-    pip install -r requirements.txt
+- Virtualenv (optional but recommended for managing dependencies)<br />
+cd backend<br />
+    python -m venv venv<br />
+    source venv/bin/activate <br />
+    pip install -r requirements.txt<br />
 
 
 
