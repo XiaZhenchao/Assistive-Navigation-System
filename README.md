@@ -18,7 +18,7 @@ Ensure you have the following software installed on your machine:
 - Python (version 3.6 or higher)
 - pip (Python package installer)
 - Virtualenv (optional but recommended for managing dependencies)
-    cd backend
+```cd backend
     python -m venv venv
     source venv/bin/activate 
     pip install -r requirements.txt
