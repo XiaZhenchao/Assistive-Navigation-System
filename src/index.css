@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.suggestion-item {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #e0e0e0; 
+}
