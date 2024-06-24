@@ -28,7 +28,7 @@ def get_sidewalk_accessibility(line_points):
         
         cursor.close()
         conn.close()
-
+ 
         return points
 
     except Exception as e:
