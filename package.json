@@ -28,7 +28,8 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.91.0",
     "wkt": "^0.1.1",
-    "wkx": "^0.5.0"
+    "wkx": "^0.5.0",
+    "zustand": "^4.5.2"
   },
   "scripts": {
     "start": "react-scripts start",

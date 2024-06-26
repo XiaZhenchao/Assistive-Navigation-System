@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
-
+import useStore from "../store";
 export default function SidePanel() {
+  const userInput = useStore((state) => state.userInput);
+  const setUserInput = useStore((state) => state.setUserInput);
   const [inputValue, setInputValue] = useState("");
   const placesLibrary = useMapsLibrary("places");
   const [service, setService] = useState(null);
@@ -36,6 +38,8 @@ export default function SidePanel() {
 
   const handleSelectedPlace = (place) => {
     setInputValue(place.description);
+    setUserInput(place.description)
+    // console.log(place.description)
     setResults([]);
   };
 
@@ -57,7 +61,7 @@ export default function SidePanel() {
       <div style={{ marginBottom: "10px" }}>
         <input
           type="text"
-          placeholder="Search address"
+          placeholder="Search destination"
           value={inputValue}
           onChange={onInputChange}
           style={{
