@@ -29,11 +29,11 @@ COPY . .
 # COPY --from=build /app/build /app/build
 
 # Set environment variables
-ENV NODE_ENV=production
-ENV PORT=3000
+# ENV NODE_ENV=production
+# ENV PORT=3000
 
 # Expose the port the app runs on
-EXPOSE 3000
+# EXPOSE 3000
 
 # Start the application
 CMD ["npm", "start"]
