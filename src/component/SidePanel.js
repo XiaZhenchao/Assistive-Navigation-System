@@ -3,7 +3,7 @@ import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import useStore from "../store";
 export default function SidePanel() {
   const userInput = useStore((state) => state.userInput);
-  const setUserInput = useStore((state) => state.setUserInput);
+  const setDestination = useStore((state) => state.setDestination);
   const [inputValue, setInputValue] = useState("");
   const placesLibrary = useMapsLibrary("places");
   const [service, setService] = useState(null);
@@ -38,7 +38,7 @@ export default function SidePanel() {
 
   const handleSelectedPlace = (place) => {
     setInputValue(place.description);
-    setUserInput(place.description)
+    setDestination(place.description)
     // console.log(place.description)
     setResults([]);
   };
