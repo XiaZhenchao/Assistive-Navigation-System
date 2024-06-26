@@ -1,5 +1,5 @@
 # Use the official Node.js image to build the React app
-FROM node:16 AS build
+FROM node:18-alpine
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -14,19 +14,19 @@ RUN npm install
 COPY . .
 
 # Build the React application
-RUN npm run build
+# RUN npm run build
 
 # Use a smaller base image to serve the built files
-FROM node:16-alpine
+# FROM node:16-alpine
 
 # Set the working directory inside the container
-WORKDIR /app
+# WORKDIR /app
 
 # Install 'serve' globally to serve the static files
-RUN npm install -g serve
+# RUN npm install -g serve
 
 # Copy the built files from the previous stage
-COPY --from=build /app/build /app/build
+# COPY --from=build /app/build /app/build
 
 # Set environment variables
 ENV NODE_ENV=production
@@ -36,4 +36,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Start the application
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["npm", "start"]
