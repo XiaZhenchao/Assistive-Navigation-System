@@ -1,9 +1,10 @@
 // src/components/SpeechSynthesis.tsx
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useStore from '../store';
-import  { v1, v1beta1, TextToSpeechClient, TextToSpeechLongAudioSynthesizeClient } from '@google-cloud/text-to-speech';
-
+//import  { v1, v1beta1, TextToSpeechClient, TextToSpeechLongAudioSynthesizeClient } from '@google-cloud/text-to-speech';
+import { v1 } from '@google-cloud/text-to-speech';
 
 export default function Boardcast() {
   const { currentDirectionsRoute } = useStore.getState();
